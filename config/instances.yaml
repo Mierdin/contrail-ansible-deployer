@@ -1,10 +1,23 @@
-provider_config:
-  bms:
 instances:
-  bms1:
-    provider: bms
-    ip: 192.168.1.100
-global_configuration:
-  CONTAINER_REGISTRY: michaelhenkel
+  tf-controller01:
+    roles:
+      config_database:
+      config:
+      control:
+      analytics_database:
+      analytics:
+      webui:
+      kubemanager:
+      k8s_master:
+  tf-compute01:
+    roles:
+      vrouter:
+      k8s_node:
+  tf-compute02:
+    roles:
+      vrouter:
+      k8s_node:
 contrail_configuration:
-  CONTRAIL_VERSION: ocata-5.0-20180219195722
+  CONTAINER_REGISTRY: opencontrailnightly
+  CONTRAIL_VERSION: master-75
+  UPGRADE_KERNEL: true
